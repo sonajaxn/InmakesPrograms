@@ -1,26 +1,16 @@
-import parser
-
 from tkinter import *
-
 root=Tk()
 root.title("CALCULATOR")
 display=Entry(root)
 display.grid(row=1, columnspan=6, sticky=W + E)
-
 # get the user input and place it in the textfield
 i = 0
-
-
 def get_variable(num):
     global i
     display.insert(i, num)
     i += 1
-
-
 def clearall():
     display.delete(0, END)
-
-
 def undo():
     entire_string = display.get()
     if len(entire_string):
@@ -30,27 +20,21 @@ def undo():
     else:
         clearall()
         display.insert(0, "ERROR")
-
-
 def get_operation(opr):
     global i
     length = len(opr)
     display.insert(i, opr)
     i += length
-
-
 def calculate():
     entire_string = display.get()
     try:
-        a = parser.expr(entire_string).compile()
+        a = entire_string
         result = eval(a)
         clearall()
         display.insert(0, result)
     except Exception:
         clearall()
         display.insert(0, "error")
-
-
 # adding button to the calculator.
 Button(root, text="1", command=lambda: get_variable(1)).grid(row=2, column=0)
 Button(root, text="2", command=lambda: get_variable(2)).grid(row=2, column=1)
@@ -75,5 +59,4 @@ Button(root, text="X!", command=lambda: get_operation("X!")).grid(row=2, column=
 Button(root, text="pi", command=lambda: get_operation("pi")).grid(row=3, column=5)
 Button(root, text="^2", command=lambda: get_operation("^2")).grid(row=4, column=5)
 Button(root, text="->", command=lambda: undo()).grid(row=5, column=5)
-
 root.mainloop()
