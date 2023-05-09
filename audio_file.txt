@@ -1,0 +1,14 @@
+नमस्ते, यह एक अच्छा दिन है
+
+steps:
+ 1.a window appears
+ 2.window will be having a label , field , button
+ 3.user enters a text
+ 4.when the button is clicked
+ 5.print the entered values
+ 6.
+
+
+
+ , audio file will be created
+ 5.audio plays.
